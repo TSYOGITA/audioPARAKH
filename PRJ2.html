@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <style>
+      .container {
+        margin: 50px;
+        background-color: aquamarine;
+        color: black;
+        border: black solid 2px;
+        padding: 40px;
+        text-align: center;
+      }
+      button:hover {
+        background-color: coral;
+        color: darkblue;
+      }
+    </style>
+    <script>
+      var bttnfwd = document.getElementById("fwd10sec");
+      var bttnbkwd = document.getElementById("back10sec");
+      var play = document.getElementById("player");
+
+      bttnfwd.onclick = function () {
+        play[0].seek(play[0].currentTime() + 10);
+      };
+
+      bttnbkwd.onclick = function () {
+        play[0].seek(Math.max(0, play[0].currentTime() - 10));
+      };
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>AUDIO CONTROLS</h1>
+      <audio
+        id="player"
+        src=" https://www.soundsnap.com/register"
+        controls
+      ></audio>
+      <div>
+        <button onclick="document.getElementById('player').play()">Play</button>
+        <button onclick="document.getElementById('player').pause()">
+          Pause
+        </button>
+        <button id="back10sec">Back 10 sec</button>
+        <button id="fwd10sec">Forwaerd 10 sec</button>
+      </div>
+    </div>
+  </body>
+</html>
